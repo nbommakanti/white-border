@@ -97,7 +97,7 @@ if uploaded_file is not None:
     
     # Download button
     st.download_button(
-        label="⬇️ Download Bordered Image",
+        label="Download Bordered Image",
         data=buf,
         file_name=output_filename,
         mime=mime_type,
