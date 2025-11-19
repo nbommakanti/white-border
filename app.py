@@ -109,10 +109,10 @@ if uploaded_file is not None:
     st.success(f"New image size: {new_width} × {new_height} pixels")
 
 else:
-    st.info("👆 Upload an image to get started")
+    st.info("Upload an image to get started")
     
     # Instructions
-    with st.expander("ℹ️ How to use"):
+    with st.expander("How to use"):
         st.markdown("""
         1. **Upload** your image using the file uploader above
         2. **Adjust** the border size with the slider
