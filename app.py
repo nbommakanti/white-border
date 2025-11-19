@@ -5,14 +5,14 @@ import io
 
 st.set_page_config(page_title="Image Border Tool", layout="wide")
 
-st.title("📸 Image Border Tool")
-st.markdown("Add white borders to your images with custom sizing")
+st.title("White Border Tool")
+st.markdown("Add white borders to your images. This preserves image creation date.")
 
 # File uploader
 uploaded_file = st.file_uploader(
     "Choose an image",
     type=["jpg", "jpeg", "png"],
-    help="Upload an image from your iPhone, iPad, or computer"
+    help="Upload an image"
 )
 
 if uploaded_file is not None:
@@ -30,7 +30,7 @@ if uploaded_file is not None:
         max_value=20,
         value=5,
         step=1,
-        help="Default is 5% matching your script"
+        help="Default is 5%"
     )
     
     # Calculate border size in pixels
@@ -75,9 +75,9 @@ if uploaded_file is not None:
     # Preserve quality for JPEGs
     if output_format in ["JPEG", "JPG"]:
         if exif_data:
-            bordered_image.save(buf, format="JPEG", quality=95, optimize=True, exif=exif_data)
+            bordered_image.save(buf, format="JPEG", quality=100, optimize=True, exif=exif_data)
         else:
-            bordered_image.save(buf, format="JPEG", quality=95, optimize=True)
+            bordered_image.save(buf, format="JPEG", quality=100, optimize=True)
         mime_type = "image/jpeg"
     else:
         # For PNG, preserve metadata differently
@@ -120,7 +120,7 @@ else:
         4. **Download** your bordered image at full quality
         
         **Tips:**
-        - Default border is 5% (same as your script)
+        - Default border is 5%
         - Works with JPG and PNG files
         - Preserves image quality and EXIF data (including creation date)
         - Border size scales with image dimensions
